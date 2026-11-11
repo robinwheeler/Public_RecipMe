@@ -2,6 +2,9 @@
 
 **A constraint-aware retrieval-augmented generation (RAG) system for recipe generation.**
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/robinwheeler/Public_RecipMe/blob/main/notebooks/RecipMe.ipynb)
+
+
 RecipMe is designed for home cooks with dietary requirements. It combines rule-based (symbolic) constraint filtering with neural retrieval, ranking and generation, so that allergen and dietary restrictions are enforced at the retrieval stage rather than left to the language model. The project also evaluates how well an LLM-as-a-judge agrees with human evaluation of generated recipes.
 
 > **Status:** proof of concept. RecipMe is **not** a safe, final product. Always check generated recipes yourself before cooking, especially if you have allergies. See [Limitations](#limitations).
@@ -62,14 +65,28 @@ RecipMe runs as a five-stage pipeline: representation, retrieval, ranking, gener
 
 ## Repository contents
 
+```
+Public_RecipMe/
+├── README.md
+├── notebooks/
+│   ├── RecipMe.ipynb
+│   └── analysis_of_data.ipynb
+├── data/
+│   ├── epi_r.csv
+│   └── RecipeNLG.csv
+└── evaluation/
+    ├── human_evaluated_recipes.json
+    └── llm_evaluated_recipes.json
+```
+
 | File | Description |
 |---|---|
-| `RecipMe.ipynb` | The RecipMe model: cleaning, embedding, retrieval, ranking, generation and evaluation. Google Colab notebook. |
-| `analysis_of_data.ipynb` | Script that analyses RecipMe's results (human vs LLM agreement). Google Colab notebook. |
-| `epi_r.csv` | **Clipped** version of the Epicurious dataset (full version on Kaggle). |
-| `RecipeNLG.csv` | **Clipped** version of the RecipeNLG dataset (full version on Kaggle). |
-| `human_evaluated_recipes.json` | 102 previously evaluated recipes with human scores on the 5 criteria, plus human-improved versions of each recipe. |
-| `llm_evaluated_recipes.json` | The same recipes scored by the LLM-as-a-judge on the 5 criteria. |
+| `notebooks/RecipMe.ipynb` | The RecipMe model: cleaning, embedding, retrieval, ranking, generation and evaluation. Google Colab notebook. |
+| `notebooks/analysis_of_data.ipynb` | Script that analyses RecipMe's results (human vs LLM agreement). Google Colab notebook. |
+| `data/epi_r.csv` | **Clipped** version of the Epicurious dataset (full version on Kaggle). |
+| `data/RecipeNLG.csv` | **Clipped** version of the RecipeNLG dataset (full version on Kaggle). |
+| `evaluation/human_evaluated_recipes.json` | 102 previously evaluated recipes with human scores on the 5 criteria, plus human-improved versions of each recipe. |
+| `evaluation/llm_evaluated_recipes.json` | The same recipes scored by the LLM-as-a-judge on the 5 criteria. |
 
 ---
 
